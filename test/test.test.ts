@@ -1,11 +1,11 @@
 import * as cdk from 'aws-cdk-lib';
-import { Template, Match } from 'aws-cdk-lib/assertions';
-import * as Test from '../lib/test-stack';
+import { Template } from 'aws-cdk-lib/assertions';
+import * as Test from '../lib/cognitoProtectedApiStack';
 
 test('SQS Queue and SNS Topic Created', () => {
   const app = new cdk.App();
   // WHEN
-  const stack = new Test.TestStack(app, 'MyTestStack');
+  const stack = new Test.CognitoProtectedApi(app, 'MyTestStack');
   // THEN
 
   const template = Template.fromStack(stack);
